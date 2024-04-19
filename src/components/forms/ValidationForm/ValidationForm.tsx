@@ -14,6 +14,7 @@ import { notificationController } from '@app/controllers/notificationController'
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
+import { Input } from 'antd';
 
 const formItemLayout = {
   labelCol: { span: 24 },
@@ -62,6 +63,9 @@ export const ValidationForm: React.FC = () => {
       }
       onFinish={onFinish}
     >
+      <BaseButtonsForm.Item label="Input" rules={[{ required: true, message: 'Please input your username!' }]}>
+        <Input />
+      </BaseButtonsForm.Item>
       <BaseButtonsForm.Item
         name="select"
         label={t('forms.validationFormLabels.select')}
@@ -94,12 +98,12 @@ export const ValidationForm: React.FC = () => {
         </label>
         <span> {t('forms.validationFormLabels.machines')}</span>
       </BaseButtonsForm.Item>
-
+      {/* 
       <BaseButtonsForm.Item name="switch" label={t('forms.validationFormLabels.switch')} valuePropName="checked">
         <BaseSwitch />
-      </BaseButtonsForm.Item>
+      </BaseButtonsForm.Item> */}
 
-      <BaseButtonsForm.Item name="slider" label={t('forms.validationFormLabels.slider')}>
+      {/* <BaseButtonsForm.Item name="slider" label={t('forms.validationFormLabels.slider')}>
         <BaseSlider
           tooltip={{ open: false }}
           marks={{
@@ -111,7 +115,7 @@ export const ValidationForm: React.FC = () => {
             100: 'F',
           }}
         />
-      </BaseButtonsForm.Item>
+      </BaseButtonsForm.Item> */}
 
       <BaseButtonsForm.Item name="radio-group" label={t('forms.validationFormLabels.radioGroup')}>
         <BaseRadio.Group>
@@ -133,7 +137,7 @@ export const ValidationForm: React.FC = () => {
         </BaseRadio.Group>
       </BaseButtonsForm.Item>
 
-      <BaseButtonsForm.Item name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
+      {/* <BaseButtonsForm.Item name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
         <BaseCheckbox.Group>
           <BaseRow>
             <BaseCol span={8}>
@@ -158,11 +162,11 @@ export const ValidationForm: React.FC = () => {
             </BaseCol>
           </BaseRow>
         </BaseCheckbox.Group>
-      </BaseButtonsForm.Item>
-
+      </BaseButtonsForm.Item> */}
+      {/* 
       <BaseButtonsForm.Item name="rate" label={t('forms.validationFormLabels.rate')}>
         <BaseRate />
-      </BaseButtonsForm.Item>
+      </BaseButtonsForm.Item> */}
 
       <BaseButtonsForm.Item
         name="upload"

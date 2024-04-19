@@ -8,9 +8,9 @@ export const References: React.FC = () => {
       <S.Text>
         Made by{' '}
         <a href="https://altence.com" target="_blank" rel="noreferrer">
-          Altence{' '}
+          Hubu802{' '}
         </a>
-        in 2022 &copy;. Based on{' '}
+        in 2023 &copy;. Based on{' '}
         <a href="https://ant.design/" target="_blank" rel="noreferrer">
           Ant-design.
         </a>

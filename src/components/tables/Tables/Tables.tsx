@@ -10,13 +10,16 @@ export const Tables: React.FC = () => {
   return (
     <>
       <S.TablesWrapper>
-        <S.Card id="basic-table" title={t('tables.basicTable')} padding="1.25rem 1.25rem 0">
+        {/* <S.Card id="basic-table" title={t('tables.basicTable')} padding="1.25rem 1.25rem 0">
           <BasicTable />
         </S.Card>
         <S.Card id="tree-table" title={t('tables.treeTable')} padding="1.25rem 1.25rem 0">
           <TreeTable />
+        </S.Card> */}
+        <S.Card id="editable-table" title={'不同员工违规次数统计'} padding="1.25rem 1.25rem 0">
+          <EditableTable />
         </S.Card>
-        <S.Card id="editable-table" title={t('tables.editableTable')} padding="1.25rem 1.25rem 0">
+        <S.Card id="editable-table" title={'历史检测记录'} padding="1.25rem 1.25rem 0">
           <EditableTable />
         </S.Card>
       </S.TablesWrapper>

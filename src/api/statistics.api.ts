@@ -2,7 +2,7 @@ export interface Statistic {
   id: number;
   value: number;
   prevValue: number;
-  unit: 'kg';
+  unit: '条';
 }
 
 export const getStatistics = (): Promise<Statistic[]> => {
@@ -11,27 +11,30 @@ export const getStatistics = (): Promise<Statistic[]> => {
       res([
         {
           id: 1,
-          value: 45,
-          prevValue: 30,
-          unit: 'kg',
+          value: 2890,
+          prevValue: 2850,
+          unit: '条',
         },
         {
           id: 2,
-          value: 12,
-          prevValue: 20,
-          unit: 'kg',
+          value: 2862,
+          prevValue: 2833,
+          // unit: 'kg',
+          unit: '条',
         },
         {
           id: 3,
-          value: 90,
-          prevValue: 60,
-          unit: 'kg',
+          value: 28,
+          prevValue: 27,
+          //   unit: 'kg',
+          unit: '条',
         },
         {
           id: 4,
           value: 78,
           prevValue: 90,
-          unit: 'kg',
+          // unit: 'kg',
+          unit: '条',
         },
       ]);
     }, 0);

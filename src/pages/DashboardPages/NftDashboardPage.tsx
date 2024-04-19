@@ -9,9 +9,14 @@ import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
 import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
 import { ActivityStory } from '@app/components/nft-dashboard/activityStory/ActivityStory';
 import { RecentActivity } from '@app/components/nft-dashboard/recentActivity/RecentActivity';
+import { ActivityCard } from '@app/components/medical-dashboard/activityCard/ActivityCard';
+import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
+import { CovidCard } from '@app/components/medical-dashboard/covidCard/CovidCard';
+import { HealthCard } from '@app/components/medical-dashboard/HealthCard/HealthCard';
 import * as S from './DashboardPage.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BloodScreeningCard } from '@app/components/medical-dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isDesktop } = useResponsive();
@@ -20,11 +25,23 @@ const MedicalDashboardPage: React.FC = () => {
     <BaseRow>
       <S.LeftSideCol xl={16} xxl={17} id="desktop-content">
         <BaseRow gutter={[60, 60]}>
-          <BaseCol span={24}>
+          {/* <BaseCol span={24}>
             <TrendingCreators />
+          </BaseCol> */}
+
+          <BaseCol id="covid" xl={24}>
+            <CovidCard />
           </BaseCol>
 
-          <BaseCol span={24}>
+          <BaseCol id="activity" xl={24} xxl={12}>
+            <ActivityCard />
+          </BaseCol>
+
+          <BaseCol id="health" xl={24} xxl={12}>
+            <HealthCard />
+          </BaseCol>
+
+          {/* <BaseCol span={24}>
             <RecentlyAddedNft />
           </BaseCol>
 
@@ -34,23 +51,24 @@ const MedicalDashboardPage: React.FC = () => {
 
           <BaseCol span={24}>
             <RecentActivity />
-          </BaseCol>
+          </BaseCol> */}
         </BaseRow>
         <References />
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={7}>
-        <div id="balance">
-          <Balance />
+        <div id="blood-screening">
+          <BloodScreeningCard />
         </div>
         <S.Space />
         <div id="total-earning">
           <TotalEarning />
         </div>
         <S.Space />
+        {/*
         <S.ScrollWrapper id="activity-story">
           <ActivityStory />
-        </S.ScrollWrapper>
+        </S.ScrollWrapper> */}
       </S.RightSideCol>
     </BaseRow>
   );

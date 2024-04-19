@@ -17,6 +17,8 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './DashboardPage.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BasicTable } from '@app/components/tables/BasicTable/BasicTable';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -33,8 +35,8 @@ const MedicalDashboardPage: React.FC = () => {
             </BaseRow>
           </BaseCol>
 
-          <BaseCol id="map" span={24}>
-            <MapCard />
+          <BaseCol id="basic-table" span={24}>
+            <BasicTable />
           </BaseCol>
 
           <BaseCol id="latest-screenings" span={24}>
@@ -44,12 +46,12 @@ const MedicalDashboardPage: React.FC = () => {
           <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
           </BaseCol>
-
+          {/* 
           <BaseCol id="covid" xl={24}>
             <CovidCard />
-          </BaseCol>
+          </BaseCol> */}
 
-          <BaseCol id="activity" xl={24} xxl={12}>
+          {/* <BaseCol id="activity" xl={24} xxl={12}>
             <ActivityCard />
           </BaseCol>
 
@@ -59,7 +61,7 @@ const MedicalDashboardPage: React.FC = () => {
 
           <BaseCol id="favorite-doctors" xl={24}>
             <FavoritesDoctorsCard />
-          </BaseCol>
+          </BaseCol> */}
 
           <BaseCol id="news" span={24}>
             <NewsCard />
@@ -69,13 +71,11 @@ const MedicalDashboardPage: React.FC = () => {
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={7}>
+        <BaseButton style={{ background: 'rgb(29,98,186)', color: 'white' }}>安全头盔检测</BaseButton>
+        <S.Space />
         <div id="blood-screening">
           <BloodScreeningCard />
         </div>
-        <S.Space />
-        <S.ScrollWrapper id="patient-timeline">
-          <PatientResultsCard />
-        </S.ScrollWrapper>
       </S.RightSideCol>
     </BaseRow>
   );

@@ -17,22 +17,22 @@ interface ConfigStatistic {
 export const statistics: ConfigStatistic[] = [
   {
     id: 1,
-    name: 'protein',
-    title: 'medical-dashboard.protein',
+    name: '当日检测数',
+    title: '当日检测数',
     color: 'success',
     Icon: ProteinIcon,
   },
   {
     id: 2,
-    name: 'fat',
-    title: 'medical-dashboard.fat',
+    name: '正常数',
+    title: '正常数',
     color: 'error',
     Icon: FatIcon,
   },
   {
     id: 3,
-    name: 'bones',
-    title: 'medical-dashboard.bones',
+    name: '违规数',
+    title: '违规数',
     color: 'primary',
     Icon: BonesIcon,
   },

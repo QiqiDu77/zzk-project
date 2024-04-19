@@ -15,7 +15,7 @@ interface StatisticsCardProps {
   value: number;
   prevValue: number;
   color: StatisticColor;
-  unit: 'kg';
+  unit: '条';
   Icon: React.FC;
 }
 
@@ -37,7 +37,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
         <BaseCol flex={1}>
           <BaseRow justify="space-between" align="middle" wrap={false}>
             <BaseCol>
-              <StatisticsInfo name={t(name)} value={value} prevValue={prevValue} />
+              <StatisticsInfo name={name} value={value} prevValue={prevValue} />
             </BaseCol>
 
             <BaseCol>
