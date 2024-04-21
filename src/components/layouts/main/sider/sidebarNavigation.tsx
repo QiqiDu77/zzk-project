@@ -29,23 +29,41 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <NftIcon />,
   },
   {
-    title: '检测页面',
-    key: 'medical-dashboard',
-    url: '/medical-dashboard',
+    title: '安全头盔检测',
+    key: 'helmet-dashboard',
+    url: '/helmet-dashboard',
     icon: <DashboardOutlined />,
   },
   {
-    title: '检测管理',
-    key: 'apps',
-    icon: <HomeOutlined />,
-    children: [
-      {
-        title: '开始检测',
-        key: 'feed',
-        url: '/apps/feed',
-      },
-    ],
+    title: '反光警示服检测',
+    key: 'clothing-dashboard',
+    url: '/clothing-dashboard',
+    icon: <LayoutOutlined />,
   },
+  {
+    title: '是否抽烟检测',
+    key: 'smoke-dashboard',
+    url: '/smoke-dashboard',
+    icon: <BlockOutlined />,
+  },
+  {
+    title: '未走斑马线检测',
+    key: 'cross-dashboard',
+    url: '/cross-dashboard',
+    icon: <CompassOutlined />,
+  },
+  // {
+  //   title: '检测管理',
+  //   key: 'apps',
+  //   icon: <HomeOutlined />,
+  //   children: [
+  //     {
+  //       title: '开始检测',
+  //       key: 'feed',
+  //       url: '/apps/feed',
+  //     },
+  //   ],
+  // },
   // {
   //   title: 'common.authPages',
   //   key: 'auth',

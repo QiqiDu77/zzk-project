@@ -7,7 +7,7 @@ export const StatisticsCards: React.FC = () => {
 
   useEffect(() => {
     // 调用函数获取数据
-    const model_id = '1';
+    const model_id = '3';
 
     const fetchData = async () => {
       try {

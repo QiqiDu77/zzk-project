@@ -496,7 +496,7 @@ export const getTreeTableData = (pagination: Pagination): Promise<TreeTableData>
   });
 };
 
-export const getEditableTableData = (pagination: Pagination): Promise<EditableTableData> => {
+export const getEditableTableData = (): Promise<EditableTableData> => {
   return new Promise((res) => {
     setTimeout(() => {
       res({
@@ -598,7 +598,7 @@ export const getEditableTableData = (pagination: Pagination): Promise<EditableTa
             address: `London Park no.4`,
           },
         ],
-        pagination: { ...pagination, total: 16 },
+        pagination: { total: 16 },
       });
     }, 1000);
   });

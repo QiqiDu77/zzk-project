@@ -8,7 +8,6 @@ import {
   Form,
   Input,
   InputNumber,
-  notification,
   Radio,
   Select,
   Slider,
@@ -21,6 +20,7 @@ import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import axios from 'axios';
 import { notificationController } from '@app/controllers/notificationController';
+import { notification } from 'antd';
 
 const NewsFeedPage: React.FC = () => {
   const { t } = useTranslation();
@@ -37,29 +37,14 @@ const NewsFeedPage: React.FC = () => {
   const onFinish = async (values: any) => {
     const { inspectors_id, inspectors_name, notes } = values;
     // 从表单数据中提取文件信息
-    console.log(values);
     const fileList = values.upload[0];
-    console.log(fileList);
-    // console.log(fileList);
-
-    // // 创建FormData对象用于发送文件
     const formData = new FormData();
-    // fileList.forEach((file: any) => {
-    //   formData.append('file', file.originFileObj);
-    // });
-
-    const dataToSend = {
-      inspectors_id: inspectors_id,
-      inspectors_name: inspectors_name,
-      notes: notes,
-      model_id: 1,
-    };
-
     formData.append('file', fileList.originFileObj);
     formData.append('inspectors_id', inspectors_id);
     formData.append('inspectors_name', inspectors_name);
     formData.append('notes', notes);
-    formData.append('model_id', '1');
+    formData.append('model_id', '3');
+    console.log(formData);
     try {
       const response = await axios.post('http://192.168.1.112:5000//classify', formData, {
         headers: {
@@ -85,7 +70,6 @@ const NewsFeedPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.feed')}</PageTitle>
-
       <Form
         form={form}
         labelCol={{ span: 8 }}

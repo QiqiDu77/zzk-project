@@ -24,8 +24,8 @@ export const statistics: ConfigStatistic[] = [
   },
   {
     id: 2,
-    name: '正常数',
-    title: '正常数',
+    name: '异常数',
+    title: '异常数',
     color: 'error',
     Icon: FatIcon,
   },

@@ -16,8 +16,15 @@ import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
 import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage';
+import ClothDashboardPage from '@app/pages/DashboardPages/ClothDashboardPage';
+
+import CrossDashboardPage from '@app/pages/DashboardPages/CrossDashboardPage';
+import SmokeDashboardPage from '@app/pages/DashboardPages/SmokeDashboardPage';
 
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
+const NewsFeedPage1 = React.lazy(() => import('@app/pages/NewsFeedPage1'));
+const NewsFeedPage2 = React.lazy(() => import('@app/pages/NewsFeedPage2'));
+const NewsFeedPage3 = React.lazy(() => import('@app/pages/NewsFeedPage3'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
 const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
 const ServerErrorPage = React.lazy(() => import('@app/pages/ServerErrorPage'));
@@ -64,8 +71,15 @@ export const NFT_DASHBOARD_PATH = '/';
 export const MEDICAL_DASHBOARD_PATH = '/medical-dashboard';
 
 const MedicalDashboard = withLoading(MedicalDashboardPage);
+const ClothDashboard = withLoading(ClothDashboardPage);
+const SmokeDashboard = withLoading(SmokeDashboardPage);
+const CrossDashboard = withLoading(CrossDashboardPage);
 const NftDashboard = withLoading(NftDashboardPage);
 const NewsFeed = withLoading(NewsFeedPage);
+const NewsFeed1 = withLoading(NewsFeedPage1);
+const NewsFeed2 = withLoading(NewsFeedPage2);
+const NewsFeed3 = withLoading(NewsFeedPage3);
+
 const AdvancedForm = withLoading(AdvancedFormsPage);
 
 // UI Components
@@ -130,13 +144,19 @@ export const AppRouter: React.FC = () => {
       <Routes>
         <Route path={NFT_DASHBOARD_PATH} element={protectedLayout}>
           <Route index element={<NftDashboard />} />
-          <Route path={MEDICAL_DASHBOARD_PATH} element={<MedicalDashboard />} />
+          <Route path="helmet-dashboard" element={<MedicalDashboard />} />
+          <Route path="clothing-dashboard" element={<ClothDashboard />} />
+          <Route path="smoke-dashboard" element={<SmokeDashboard />} />
+          <Route path="cross-dashboard" element={<CrossDashboard />} />
           <Route path="apps">
             <Route path="feed" element={<NewsFeed />} />
+            <Route path="feed1" element={<NewsFeed1 />} />
+            <Route path="feed2" element={<NewsFeed2 />} />
+            <Route path="feed3" element={<NewsFeed3 />} />
           </Route>
-          <Route path="forms">
+          {/* <Route path="forms">
             <Route path="advanced-forms" element={<AdvancedForm />} />
-          </Route>
+          </Route> */}
           <Route path="data-tables" element={<DataTables />} />
           {/* <Route path="charts" element={<Charts />} />
           <Route path="maps">

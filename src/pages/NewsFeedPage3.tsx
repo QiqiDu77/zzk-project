@@ -52,16 +52,16 @@ const NewsFeedPage: React.FC = () => {
       inspectors_id: inspectors_id,
       inspectors_name: inspectors_name,
       notes: notes,
-      model_id: 1,
+      model_id: 4,
     };
-
     formData.append('file', fileList.originFileObj);
     formData.append('inspectors_id', inspectors_id);
     formData.append('inspectors_name', inspectors_name);
     formData.append('notes', notes);
-    formData.append('model_id', '1');
+    formData.append('model_id', '4');
+    console.log(formData);
     try {
-      const response = await axios.post('http://192.168.1.112:5000//classify', formData, {
+      const response = await axios.post('http://192.168.1.112:5000/classify', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -70,8 +70,6 @@ const NewsFeedPage: React.FC = () => {
       if (response.status === 200) {
         notification.success({ message: response.data.class });
       }
-
-      // 处理响应数据，例如保存token，导航到其他页面等
     } catch (error) {
       console.error('Failed:', error);
       // 处理错误，例如显示错误消息

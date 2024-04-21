@@ -26,7 +26,7 @@ export const EditableTable: React.FC = () => {
     axios
       .get('http://192.168.1.112:5000/get_violations', {
         params: {
-          model_id: '1',
+          model_id: '3',
         },
       })
       .then((res) => {

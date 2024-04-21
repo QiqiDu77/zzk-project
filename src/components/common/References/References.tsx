@@ -16,7 +16,7 @@ export const References: React.FC = () => {
         </a>
       </S.Text>
       <S.Icons>
-        <a href="https://github.com/altence/lightence-admin" target="_blank" rel="noreferrer">
+        {/* <a href="https://github.com/altence/lightence-admin" target="_blank" rel="noreferrer">
           <GithubOutlined />
         </a>
         <a href="https://twitter.com/altence_team" target="_blank" rel="noreferrer">
@@ -27,7 +27,7 @@ export const References: React.FC = () => {
         </a>
         <a href="https://linkedin.com/company/altence" target="_blank" rel="noreferrer">
           <LinkedinOutlined />
-        </a>
+        </a> */}
       </S.Icons>
     </S.ReferencesWrapper>
   );

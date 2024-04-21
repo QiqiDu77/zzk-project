@@ -6,9 +6,9 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
 
 export interface LegendItem {
-  name: string;
+  name: string | undefined;
   value: number | string;
-  description: string;
+  // description: string;
 }
 
 interface LegendProps {
@@ -30,7 +30,7 @@ export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) 
               <S.LegendTitle>{item.name}</S.LegendTitle>
             </S.LegendDescription>
             <S.Values>{item.value}</S.Values>
-            <BasePopover content={<S.PopoverContent>{item.description}</S.PopoverContent>} trigger="hover">
+            <BasePopover content={<S.PopoverContent></S.PopoverContent>} trigger="hover">
               <S.InfoStyled />
             </BasePopover>
           </S.LegendInfo>

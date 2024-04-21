@@ -29,13 +29,13 @@ export const getStatistics = (): Promise<Statistic[]> => {
           //   unit: 'kg',
           unit: '条',
         },
-        {
-          id: 4,
-          value: 78,
-          prevValue: 90,
-          // unit: 'kg',
-          unit: '条',
-        },
+        // {
+        //   id: 4,
+        //   value: 78,
+        //   prevValue: 90,
+        //   // unit: 'kg',
+        //   unit: '条',
+        // },
       ]);
     }, 0);
   });

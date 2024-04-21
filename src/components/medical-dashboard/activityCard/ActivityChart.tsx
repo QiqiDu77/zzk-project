@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { dashboardPaddings } from '@app/components/medical-dashboard/DashboardCard/DashboardCard';
@@ -8,13 +8,17 @@ import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
 import { graphic } from 'echarts';
+import axios from 'axios';
+import { DataF } from '@react-google-maps/api';
 
 interface ActivityChartProps {
   data: ChartData;
 }
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
+  console.log(data);
   const theme = useAppSelector((state) => state.theme.theme);
+  // const [data, setData] = useState([]);
 
   const { t } = useTranslation();
 
@@ -24,6 +28,9 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
 
   const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
+  if (data.length === 0) {
+    return <div>Loading...</div>; // 或者其他加载状态
+  }
   const option = {
     color: new graphic.LinearGradient(0, 0, 0, 1, [
       {
@@ -60,9 +67,9 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
     },
     yAxis: {
       type: 'value',
-      min: 1500,
+      min: 0,
       axisLabel: {
-        formatter: '{value} kcal',
+        formatter: '{value} 条',
         color: themeObject[theme].textLight,
         fontWeight: 500,
         fontSize: 14,

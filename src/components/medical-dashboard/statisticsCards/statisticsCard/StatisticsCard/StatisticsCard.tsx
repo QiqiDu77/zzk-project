@@ -40,9 +40,9 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
               <StatisticsInfo name={name} value={value} prevValue={prevValue} />
             </BaseCol>
 
-            <BaseCol>
+            {/* <BaseCol>
               <StatisticsProgress color={themeObject[theme][color]} unit={unit} value={value} />
-            </BaseCol>
+            </BaseCol> */}
           </BaseRow>
         </BaseCol>
       </BaseRow>

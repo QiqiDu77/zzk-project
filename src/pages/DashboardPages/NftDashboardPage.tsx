@@ -5,18 +5,15 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import { TrendingCreators } from '@app/components/nft-dashboard/trending-creators/TrendingCreators';
 import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/RecentlyAddedNft';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
-import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
 import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
-import { ActivityStory } from '@app/components/nft-dashboard/activityStory/ActivityStory';
 import { RecentActivity } from '@app/components/nft-dashboard/recentActivity/RecentActivity';
 import { ActivityCard } from '@app/components/medical-dashboard/activityCard/ActivityCard';
-import { TreatmentCard } from '@app/components/medical-dashboard/treatmentCard/TreatmentCard';
-import { CovidCard } from '@app/components/medical-dashboard/covidCard/CovidCard';
 import { HealthCard } from '@app/components/medical-dashboard/HealthCard/HealthCard';
 import * as S from './DashboardPage.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BloodScreeningCard } from '@app/components/medical-dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
+import { LineRaceChart } from '@app/components/charts/LineRaceChart/LineRaceChart';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isDesktop } = useResponsive();
@@ -29,8 +26,8 @@ const MedicalDashboardPage: React.FC = () => {
             <TrendingCreators />
           </BaseCol> */}
 
-          <BaseCol id="covid" xl={24}>
-            <CovidCard />
+          <BaseCol id="line-race" span={24}>
+            <LineRaceChart />
           </BaseCol>
 
           <BaseCol id="activity" xl={24} xxl={12}>
@@ -96,7 +93,7 @@ const MedicalDashboardPage: React.FC = () => {
   return (
     <>
       <PageTitle>NFT Dashboard</PageTitle>
-      {isDesktop ? desktopLayout : mobileAndTabletLayout}
+      {isDesktop ? desktopLayout : desktopLayout}
     </>
   );
 };
