@@ -4,21 +4,25 @@ import styled from 'styled-components';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { BASE_COLORS } from '@app/styles/themes/constants';
 import { BaseButton as BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import axios from 'axios';
 
 export const GitHubButton: React.FC = (props) => {
   const theme = useAppSelector((state) => state.theme.theme);
-
+  const fetchData = async (status: string) => {
+    console.log(`${status}检测`);
+    await axios
+      .post('http://192.168.1.112:5000/timer', {}, { params: { action: 'start' } })
+      .then((res: any) => console.log(res));
+  };
   return (
-    <Button
-      type="default"
-      href="https://github.com/altence/lightence-admin"
-      icon={<GithubIcon />}
-      target="_blank"
-      $isDark={theme === 'dark'}
-      {...props}
-    >
-      GitHub
-    </Button>
+    <div style={{ display: 'flex' }}>
+      <Button type="default" $isDark={theme === 'dark'} onClick={() => fetchData('start')} {...props}>
+        启动系统检测
+      </Button>
+      <Button type="default" $isDark={theme === 'dark'} onClick={() => fetchData('stop')} {...props}>
+        暂停系统检测
+      </Button>
+    </div>
   );
 };
 

@@ -16,7 +16,6 @@ interface ActivityChartProps {
 }
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
-  console.log(data);
   const theme = useAppSelector((state) => state.theme.theme);
   // const [data, setData] = useState([]);
 
