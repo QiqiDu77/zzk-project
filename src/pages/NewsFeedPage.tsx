@@ -48,13 +48,6 @@ const NewsFeedPage: React.FC = () => {
     //   formData.append('file', file.originFileObj);
     // });
 
-    const dataToSend = {
-      inspectors_id: inspectors_id,
-      inspectors_name: inspectors_name,
-      notes: notes,
-      model_id: 1,
-    };
-
     formData.append('file', fileList.originFileObj);
     formData.append('inspectors_id', inspectors_id);
     formData.append('inspectors_name', inspectors_name);

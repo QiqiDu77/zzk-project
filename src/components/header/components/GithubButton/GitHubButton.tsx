@@ -5,14 +5,18 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 import { BASE_COLORS } from '@app/styles/themes/constants';
 import { BaseButton as BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import axios from 'axios';
+import { notification } from 'antd';
 
 export const GitHubButton: React.FC = (props) => {
   const theme = useAppSelector((state) => state.theme.theme);
   const fetchData = async (status: string) => {
     console.log(`${status}检测`);
-    await axios
-      .post('http://192.168.1.112:5000/timer', {}, { params: { action: 'start' } })
-      .then((res: any) => console.log(res));
+    await axios.post('http://192.168.1.112:5000/timer', {}, { params: { action: 'start' } }).then((res: any) => {
+      console.log(res);
+      if (res.status === 200) {
+        notification.success({ message: res.message });
+      }
+    });
   };
   return (
     <div style={{ display: 'flex' }}>

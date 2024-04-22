@@ -16,7 +16,7 @@ interface LoginFormData {
 }
 
 export const initValues: LoginFormData = {
-  email: 'hello@altence.com',
+  email: 'hello',
   password: 'some-test-pass',
 };
 
@@ -41,43 +41,40 @@ export const LoginForm: React.FC = () => {
   return (
     <Auth.FormWrapper>
       <BaseForm layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
-        <Auth.FormTitle>{t('common.login')}</Auth.FormTitle>
-        <S.LoginDescription>{t('login.loginInfo')}</S.LoginDescription>
+        <Auth.FormTitle>欢迎登录</Auth.FormTitle>
+        <S.LoginDescription>输入你的账号和密码登录系统主界面！</S.LoginDescription>
         <Auth.FormItem
           name="email"
-          label={t('common.email')}
+          label="用户名"
           rules={[
             { required: true, message: t('common.requiredField') },
             {
-              type: 'email',
+              // type: 'email',
               message: t('common.notValidEmail'),
             },
           ]}
         >
           <Auth.FormInput placeholder={t('common.email')} />
         </Auth.FormItem>
-        <Auth.FormItem
-          label={t('common.password')}
-          name="password"
-          rules={[{ required: true, message: t('common.requiredField') }]}
-        >
+        <Auth.FormItem label="密码" name="password" rules={[{ required: true, message: t('common.requiredField') }]}>
           <Auth.FormInputPassword placeholder={t('common.password')} />
         </Auth.FormItem>
         <Auth.ActionsWrapper>
           <BaseForm.Item name="rememberMe" valuePropName="checked" noStyle>
             <Auth.FormCheckbox>
-              <S.RememberMeText>{t('login.rememberMe')}</S.RememberMeText>
+              <S.RememberMeText>记住密码</S.RememberMeText>
             </Auth.FormCheckbox>
           </BaseForm.Item>
           <Link to="/auth/forgot-password">
-            <S.ForgotPasswordText>{t('common.forgotPass')}</S.ForgotPasswordText>
+            <S.ForgotPasswordText>忘记密码</S.ForgotPasswordText>
           </Link>
         </Auth.ActionsWrapper>
         <BaseForm.Item noStyle>
           <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
-            {t('common.login')}
+            登录
           </Auth.SubmitButton>
         </BaseForm.Item>
+        {/* 
         <BaseForm.Item noStyle>
           <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
@@ -93,12 +90,12 @@ export const LoginForm: React.FC = () => {
             </Auth.SocialIconWrapper>
             {t('login.facebookLink')}
           </Auth.SocialButton>
-        </BaseForm.Item>
+        </BaseForm.Item> */}
         <Auth.FooterWrapper>
           <Auth.Text>
-            {t('login.noAccount')}{' '}
+            没有账户？{' '}
             <Link to="/auth/sign-up">
-              <Auth.LinkText>{t('common.here')}</Auth.LinkText>
+              <Auth.LinkText>点击此处注册</Auth.LinkText>
             </Link>
           </Auth.Text>
         </Auth.FooterWrapper>

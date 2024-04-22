@@ -8,12 +8,12 @@ export const ProfileOverlay: React.FC = ({ ...props }) => {
 
   return (
     <div {...props}>
-      <S.Text>
+      {/* <S.Text>
         <Link to="/profile">{t('profile.title')}</Link>
       </S.Text>
-      <S.ItemsDivider />
+      <S.ItemsDivider /> */}
       <S.Text>
-        <Link to="/logout">{t('header.logout')}</Link>
+        <Link to="/logout">退出登录</Link>
       </S.Text>
     </div>
   );
