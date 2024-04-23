@@ -15,9 +15,24 @@ import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BloodScreeningCard } from '@app/components/medical-dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
 import { LineRaceChart } from '@app/components/charts/LineRaceChart/LineRaceChart';
 import { PatientResultsCard } from '@app/components/medical-dashboard/PatientResultsCard/PatientResultsCard';
+import { Button, notification } from 'antd';
+import axios from 'axios';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isDesktop } = useResponsive();
+  const theme = useAppSelector((state) => state.theme.theme);
+  const fetchData = async (status: string) => {
+    console.log(`${status}检测`);
+    await axios.post('http://192.168.1.112:5000/timer', {}, { params: { action: status } }).then((res: any) => {
+      console.log(res);
+      if (res.status === 200) {
+        notification.success({ message: res.data.message });
+      } else if (res.status === 500) {
+        notification.error({ message: '存在错误！' });
+      }
+    });
+  };
 
   const desktopLayout = (
     <BaseRow>
@@ -58,10 +73,19 @@ const MedicalDashboardPage: React.FC = () => {
         <div id="blood-screening">
           <BloodScreeningCard />
         </div>
-        <S.Space />
+
         <S.ScrollWrapper id="patient-timeline">
           <PatientResultsCard />
         </S.ScrollWrapper>
+        <S.Space />
+        <div style={{ display: 'flex', gap: '30px' }}>
+          <Button type="default" style={{ backgroundColor: 'lightblue' }} onClick={() => fetchData('start')}>
+            启动系统检测
+          </Button>
+          <Button type="default" style={{ backgroundColor: 'lightblue' }} onClick={() => fetchData('stop')}>
+            暂停系统检测
+          </Button>
+        </div>
       </S.RightSideCol>
     </BaseRow>
   );

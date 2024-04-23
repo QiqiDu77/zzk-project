@@ -71,7 +71,7 @@ export const TreatmentCard: React.FC = () => {
             </div>
           ) : (
             <div>
-              <BaseCol md={16}>{calendarItem}</BaseCol>
+              <BaseCol>{calendarItem}</BaseCol>
               {/* <BaseCol md={12}>{panelItem}</BaseCol> */}
             </div>
           )
