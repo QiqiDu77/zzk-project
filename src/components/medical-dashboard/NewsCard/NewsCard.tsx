@@ -9,7 +9,7 @@ export const NewsCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <DashboardCard title={t('medical-dashboard.news')}>
+    <DashboardCard title="新闻">
       <S.Wrapper>
         {dashboardNews.map((advice, index) => (
           <BaseArticle

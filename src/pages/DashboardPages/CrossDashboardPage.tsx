@@ -127,9 +127,6 @@ const CrossDashboardPage: React.FC = () => {
             </BaseCard>
           </BaseCol>
 
-          <BaseCol id="treatment-plan" xl={24}>
-            <TreatmentCard />
-          </BaseCol>
           {/* 
           <BaseCol id="covid" xl={24}>
             <CovidCard />
@@ -160,7 +157,8 @@ const CrossDashboardPage: React.FC = () => {
         </BaseButton>
         <S.Space />
         <div id="blood-screening">
-          <BloodScreeningCard />
+          {/* <BloodScreeningCard /> */}
+          <TreatmentCard />
         </div>
       </S.RightSideCol>
     </BaseRow>

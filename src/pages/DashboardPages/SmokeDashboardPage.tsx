@@ -48,10 +48,10 @@ const MedicalDashboardPage: React.FC = () => {
               <EditableTable></EditableTable>
             </BaseCard>
           </BaseCol>
-
+          {/* 
           <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
-          </BaseCol>
+          </BaseCol> */}
           {/* 
           <BaseCol id="covid" xl={24}>
             <CovidCard />
@@ -81,7 +81,8 @@ const MedicalDashboardPage: React.FC = () => {
         </BaseButton>
         <S.Space />
         <div id="blood-screening">
-          <BloodScreeningCard />
+          {/* <BloodScreeningCard /> */}
+          <TreatmentCard />
         </div>
       </S.RightSideCol>
     </BaseRow>

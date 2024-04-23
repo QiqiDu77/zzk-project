@@ -61,21 +61,30 @@ export const TreatmentCard: React.FC = () => {
   const panelItem = <TreatmentPanel event={currentEvent} />;
 
   return (
-    <DashboardCard title={t('medical-dashboard.treatmentPlan.title')}>
-      <RowStyled gutter={[10, 10]} wrap={false}>
-        {isTablet ? (
-          <>
-            <BaseCol md={12}>{calendarItem}</BaseCol>
-            <BaseCol md={12}>{panelItem}</BaseCol>
-          </>
-        ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
-          <BackButtonWrapper span={24}>
-            {panelItem}
-            <BackButton type="text" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
-          </BackButtonWrapper>
-        ) : (
-          <BaseCol span={24}>{calendarItem}</BaseCol>
-        )}
+    <DashboardCard title="日历">
+      <RowStyled>
+        {
+          isTablet ? (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <BaseCol>{calendarItem}</BaseCol>
+              {/* <BaseCol md={12}>{panelItem}</BaseCol> */}
+            </div>
+          ) : (
+            <div>
+              <BaseCol md={16}>{calendarItem}</BaseCol>
+              {/* <BaseCol md={12}>{panelItem}</BaseCol> */}
+            </div>
+          )
+
+          // isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
+          //   <BackButtonWrapper span={24}>
+          //     {panelItem}
+          //     <BackButton type="text" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
+          //   </BackButtonWrapper>
+          // ) : (
+          //   <BaseCol span={24}>{calendarItem}</BaseCol>
+          // )
+        }
       </RowStyled>
     </DashboardCard>
   );
