@@ -14,6 +14,7 @@ import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BloodScreeningCard } from '@app/components/medical-dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
 import { LineRaceChart } from '@app/components/charts/LineRaceChart/LineRaceChart';
+import { PatientResultsCard } from '@app/components/medical-dashboard/PatientResultsCard/PatientResultsCard';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isDesktop } = useResponsive();
@@ -58,35 +59,10 @@ const MedicalDashboardPage: React.FC = () => {
           <BloodScreeningCard />
         </div>
         <S.Space />
-        <div id="total-earning">
-          <TotalEarning />
-        </div>
-        <S.Space />
-        {/*
-        <S.ScrollWrapper id="activity-story">
-          <ActivityStory />
-        </S.ScrollWrapper> */}
+        <S.ScrollWrapper id="patient-timeline">
+          <PatientResultsCard />
+        </S.ScrollWrapper>
       </S.RightSideCol>
-    </BaseRow>
-  );
-
-  const mobileAndTabletLayout = (
-    <BaseRow gutter={[20, 24]}>
-      <BaseCol span={24}>
-        <TrendingCreators />
-      </BaseCol>
-
-      <BaseCol span={24}>
-        <RecentlyAddedNft />
-      </BaseCol>
-
-      <BaseCol span={24}>
-        <TrendingCollections />
-      </BaseCol>
-
-      <BaseCol span={24}>
-        <RecentActivity />
-      </BaseCol>
     </BaseRow>
   );
 
